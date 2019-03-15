@@ -1,26 +1,26 @@
-package org.gnaik;
+package org.gnaik.multithreading;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class TestClass {
+public class DeadLockSimulation {
     public static void main(String[] args) {
         Lock resource1 = new ReentrantLock();
         Lock resource2 = new ReentrantLock();
-        Thread t1 = new Deadlock("T1", resource1, resource2, 1);
-        Thread t2 = new Deadlock("T2", resource1, resource2, 2);
+        Thread t1 = new ResourceAllocator("T1", resource1, resource2, 1);
+        Thread t2 = new ResourceAllocator("T2", resource1, resource2, 2);
         t1.start();
         t2.start();
     }
 }
 
-class Deadlock extends Thread {
+class ResourceAllocator extends Thread {
 
     private final Lock resource1;
     private final Lock resource2;
     private final int resourceAcquisitionOrder;
 
-    Deadlock(String name, Lock resource1, Lock resource2, int resourceAcquisitionOrder) {
+    ResourceAllocator(String name, Lock resource1, Lock resource2, int resourceAcquisitionOrder) {
         super(name);
         this.resource1 = resource1;
         this.resource2 = resource2;

@@ -78,13 +78,13 @@ class TreeNode {
     TreeNode left;
     TreeNode right;
 
-    public TreeNode(int data, TreeNode left, TreeNode right) {
+    TreeNode(int data, TreeNode left, TreeNode right) {
         this.data = data;
         this.left = left;
         this.right = right;
     }
 
-    StringBuilder levelOrder(TreeNode root) {
+    private StringBuilder levelOrder(TreeNode root) {
         StringBuilder stringBuilder = new StringBuilder();
         if (root == null)
             return stringBuilder;
@@ -108,7 +108,7 @@ class TreeNode {
                 if (curr.right != null)
                     q.add(curr.right);
 
-                stringBuilder.append(curr.data + " ");
+                stringBuilder.append(curr.data ).append(" ");
             }
         }
         return stringBuilder;

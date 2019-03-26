@@ -41,6 +41,8 @@ public class MaxHeapDemonstration {
         System.out.println(heap);
         heap.remove();
         System.out.println(heap);
+        heap.remove();
+        System.out.println(heap);
     }
 }
 
@@ -175,7 +177,7 @@ class MaxHeap<T extends Comparable<T>> {
      * @return
      */
     private boolean hasLeftChild(int parentIndex) {
-        return (getLeftChildIndex(parentIndex) > size) ? true : false;
+        return (getLeftChildIndex(parentIndex) < size) ? true : false;
     }
 
     /**
@@ -183,7 +185,7 @@ class MaxHeap<T extends Comparable<T>> {
      * @return
      */
     private boolean hasRightChild(int parentIndex) {
-        return (getRightChildIndex(parentIndex) > size) ? true : false;
+        return (getRightChildIndex(parentIndex) < size) ? true : false;
     }
 
     /**

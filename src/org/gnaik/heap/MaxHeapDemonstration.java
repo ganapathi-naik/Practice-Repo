@@ -161,7 +161,7 @@ class MaxHeap<T extends Comparable<T>> {
      * @return
      */
     private int getLeftChildIndex(int parentIndex) {
-        return 2 * parentIndex + 2;
+        return 2 * parentIndex + 1;
     }
 
     /**
@@ -169,7 +169,7 @@ class MaxHeap<T extends Comparable<T>> {
      * @return
      */
     private int getRightChildIndex(int parentIndex) {
-        return 2 * parentIndex + 1;
+        return 2 * parentIndex + 2;
     }
 
     /**
